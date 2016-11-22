@@ -4,10 +4,10 @@ const Observable = Rx.Observable;
 const source = Observable.interval(100).take(10);
 
 const mapEverythingButFours = x => {
-  if (x === 4) {
-    throw new Error('fours are bad');
-  }
-  return x + '!';
+    if (x === 4) {
+        throw new Error('fours are bad');
+    }
+    return x + '!';
 }
 
 // Use the above mapping function, `mapEverythingButFours`, to map all of the
@@ -15,12 +15,12 @@ const mapEverythingButFours = x => {
 // skip the value. Log the values out to console
 
 source.mergeMap(
-  n => Observable.of(n)
-    .map(mapEverythingButFours)
-    .catch(err => Observable.empty())
+    n => Observable.of(n)
+        .map(mapEverythingButFours)
+        .catch(err => Observable.empty())
 )
-.subscribe(
-  x => console.log(x),
-  err => console.error(err),
-  () => console.info('done')
-);
+    .subscribe(
+        x => console.log(x),
+        err => console.error(err),
+        () => console.info('done')
+    );

@@ -68,8 +68,11 @@ server.get('/suggest/:q', function suggest(req, res, next) {
       res.send(result);
       return next();
     }
+  } else {
+    res.status(404);
+    res.end();
+    return next();
   }
-  return next();
 });
 
 server.listen(8080, function() {

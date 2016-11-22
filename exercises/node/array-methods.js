@@ -8,7 +8,9 @@ var source = [1, 2, 3, 4, 5];
 // 3. Add them together
 
 var result = source
-  //.add().operators().here()
+    .filter(x => x % 2 === 1)
+    .map(x => x*3)
+    .reduce((state, x) => state + x, 0);
 
 console.assert(result === 27, `${result} should be 27`);
 console.log('SUCCESS!', result);

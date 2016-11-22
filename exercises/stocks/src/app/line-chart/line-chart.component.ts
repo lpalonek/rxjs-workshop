@@ -14,7 +14,7 @@ let lineChartCounter = 0;
 export class LineChartComponent implements OnInit, OnDestroy {
 
   @Input('dataStream')
-  dataStream: Observable<any>;
+  dataStream: Observable<number>;
 
   @Input()
   title: string;
